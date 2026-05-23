@@ -21,12 +21,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     cfg.bearer_access_token = std::env::var("PBS_TOKEN").ok();
 
     let resp = nodes_api::nodes_get_nodes(&cfg).await?;
-    let nodes = resp.data;
-    println!("Found {} node(s):", nodes.len());
-    for n in nodes {
-        // PBS / PMG / PDM expose a slimmer Node shape; print whatever
-        // debug-format gives so the example compiles across products.
-        println!("  - {:?}", n);
-    }
+    // Non-PVE products: the upstream apidoc.js declares this endpoint
+    // `returns: { type: null }`, so the generator emits `data` as an
+    // untyped `serde_json::Value` (or similar). Print whatever came back.
+    println!("Response: {:?}", resp);
     Ok(())
 }
