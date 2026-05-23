@@ -9,7 +9,3 @@ extern crate reqwest;
 
 pub mod apis;
 pub mod models;
-#[cfg(feature = "extras")]
-pub mod websocket;
-#[cfg(feature = "extras")]
-pub mod websocket_resilient;
