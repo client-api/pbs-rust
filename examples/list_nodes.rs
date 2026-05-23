@@ -24,10 +24,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let nodes = resp.data;
     println!("Found {} node(s):", nodes.len());
     for n in nodes {
-        println!(
-            "  - {} (status={:?}, cpu={:?}, mem={:?}/{:?})",
-            n.node, n.status, n.cpu, n.mem, n.maxmem,
-        );
+        // PBS / PMG / PDM expose a slimmer Node shape; print whatever
+        // debug-format gives so the example compiles across products.
+        println!("  - {:?}", n);
     }
     Ok(())
 }
