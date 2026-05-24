@@ -45,7 +45,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     cfg.base_path = "https://pbs1.example.com:8007/api2/json".into();
     cfg.api_key = Some(clientapi_pbs::apis::configuration::ApiKey {
         prefix: None,
-        key: "PBSAPIToken=user@realm!tokenid=uuid-secret".into(),
+        key: "PBSAPIToken=user@realm!tokenid:uuid-secret".into(),
     });
 
     let status = qemu_api::qemu_vm_status(&cfg, "pbs1", 100).await?;

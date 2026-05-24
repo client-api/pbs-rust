@@ -4,7 +4,7 @@
 //!
 //! ```sh
 //! PBS_HOST=https://pbs.example.com:8007 \
-//! PBS_TOKEN='root@pam!auto=...' \
+//! PBS_TOKEN='root@pam!auto:...' \
 //! cargo run --example list_nodes
 //! ```
 
