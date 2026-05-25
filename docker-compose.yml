@@ -1,0 +1,12 @@
+# Local-dev convenience. CI uses client-api/proxmox-docker-action@v1.
+services:
+  pbs-test:
+    image: ghcr.io/client-api/proxmox-docker/pbs-test:4.2
+    container_name: pbs-test
+    hostname: pbs-test
+    privileged: true
+    ports:
+      - "8007:8007"
+    tmpfs:
+      - /run
+    stop_grace_period: 10s
